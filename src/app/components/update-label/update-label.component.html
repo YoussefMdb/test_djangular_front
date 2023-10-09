@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Add Label</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAlMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" routerLink="/"
+              >Home</a
+            >
+            <a class="nav-link" routerLink="/add_label">Add Label</a>
+            <a class="nav-link" routerLink="/add_document">Add Document</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Label List -->
+    <div class="container">
+      <div class="mx-auto w-25" style="max-width: 100%">
+        <h2 class="text-center mb-3">Update Label</h2>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <!-- name -->
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                formControlName="name"
+                class="form-control"
+                [placeholder]="label?.name"
+                required
+              />
+            </div>
+          </div>
+          <!-- color -->
+          <label for="color" class="form-label">Color</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              formControlName="color"
+              type="radio"
+              name="color"
+              id="violet"
+              value="Violet"
+            />
+            <label for="violet" class="form-check-label">Violet</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              formControlName="color"
+              type="radio"
+              name="color"
+              id="yellow"
+              value="Yellow"
+            />
+            <label for="yellow" class="form-check-label">Yellow</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              formControlName="color"
+              type="radio"
+              name="color"
+              id="pink"
+              value="Pink"
+            />
+            <label for="pink" class="form-check-label">Pink</label>
+          </div>
+
+          <!-- button -->
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <input
+                type="submit"
+                value="Submit"
+                class="btn btn-primary w-100"
+                [disabled]="!form.valid"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
